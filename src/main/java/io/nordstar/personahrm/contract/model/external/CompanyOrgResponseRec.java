@@ -11,8 +11,9 @@ import java.util.List;
  *
  * @author pmarquez - 2016-04-19 06:59
  */
+@Deprecated
 public class CompanyOrgResponseRec {
-    private List<CompanyOrganizationalRec> payload;
+    private List<CompanyOrgRec> payload;
     private String resultCode         = "";
     private String resultMessage      = "";
     private LocalDateTime opTimestamp = LocalDateTime.now ( );
@@ -20,14 +21,14 @@ public class CompanyOrgResponseRec {
     /**
      * @return the payload
      */
-    public List<CompanyOrganizationalRec> getPayload ( ) {
+    public List<CompanyOrgRec> getPayload ( ) {
         return payload;
     }
 
     /**
      * @param payload the payload to set
      */
-    public void setPayload ( List<CompanyOrganizationalRec> payload ) {
+    public void setPayload ( List<CompanyOrgRec> payload ) {
         this.payload = payload;
     }
 

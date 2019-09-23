@@ -10,6 +10,7 @@ import java.time.format.DateTimeParseException;
  *
  * @author pmarquez - 2016-04-24 21:37
  */
+@Deprecated
 public class CompanyResponseRec {
     private CompanyRec    payload;
     private String        resultCode    = "";

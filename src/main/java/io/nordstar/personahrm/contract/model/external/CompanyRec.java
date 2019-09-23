@@ -5,7 +5,9 @@ package io.nordstar.personahrm.contract.model.external;
 
 
 //   Third Party Libraries Imports
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 //   FENIX Framework Imports
 
@@ -15,7 +17,7 @@ package io.nordstar.personahrm.contract.model.external;
 
 /**
  * CompanyRec.java<br/><br/>
- * Creation Date 2015-03-24 11:47<br/><br/>
+ * Creation Date 2019-09-18 10:21 PT<br/><br/>
  * <b>DESCRIPTION:</b><br/><br/>
  * <p></p>
  *
@@ -25,15 +27,19 @@ package io.nordstar.personahrm.contract.model.external;
  *
  *<tr>
  *<td width="20%">Version 1.0<br/>
- * Version Date: 2015-03-24 11:47<br/>
+ * Version Date: 2019-09-18 10:21 PT<br/>
  * Version Creator: Paulo Márquez</td>
  *<td width="80%"><p>Creation</p></td>
  *</tr>
  *</table>
  *</PRE>
  * @author Paulo Márquez
- * @version 1.0 - 2015-03-24 11:47
+ * @version 1.0 - 2019-09-18 10:21 PT
  */
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class CompanyRec extends CompanyBaseRec {
-    
+//    private CompanyContactList     contacts;
+//    private PostalAddressRecList   postalAddresses;
 }
