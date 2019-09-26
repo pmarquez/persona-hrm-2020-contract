@@ -1,5 +1,5 @@
 
-package io.nordstar.personahrm.contract.model.external;
+package io.nordstar.personahrm.contract.model.external.education;
 
 //   Standard Libraries Imports
 

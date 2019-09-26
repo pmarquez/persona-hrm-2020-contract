@@ -2,7 +2,6 @@
 package io.nordstar.personahrm.contract.model.contract;
 
 //   Standard Libraries Imports
-import java.util.ArrayList;
 import java.util.List;
 
 //   Third Party Libraries Imports
@@ -13,7 +12,7 @@ import lombok.NoArgsConstructor;
 //   FENIX Framework Imports
 
 //   Application Domain Imports
-import io.nordstar.personahrm.contract.model.post.ContractPostRec;
+import io.nordstar.personahrm.contract.model.external.post.ContractPostRec;
 import io.nordstar.personahrm.contract.model.salary.SalaryBaseRec;
 
 /**

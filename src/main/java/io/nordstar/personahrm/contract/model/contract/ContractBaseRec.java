@@ -2,8 +2,8 @@
 package io.nordstar.personahrm.contract.model.contract;
 
 //   Standard Libraries Imports
-import io.nordstar.personahrm.contract.model.external.CompanyRec;
-import io.nordstar.personahrm.contract.model.external.PersonRec;
+import io.nordstar.personahrm.contract.model.external.company.CompanyRec;
+import io.nordstar.personahrm.contract.model.external.person.PersonRec;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 

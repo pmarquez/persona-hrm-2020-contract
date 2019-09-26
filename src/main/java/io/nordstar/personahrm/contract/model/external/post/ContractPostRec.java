@@ -1,5 +1,5 @@
 
-package io.nordstar.personahrm.contract.model.post;
+package io.nordstar.personahrm.contract.model.external.post;
 
 //   Standard Libraries Imports
 import java.time.LocalDate;
