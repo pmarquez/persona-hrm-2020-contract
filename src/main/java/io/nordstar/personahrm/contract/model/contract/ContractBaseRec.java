@@ -2,8 +2,6 @@
 package io.nordstar.personahrm.contract.model.contract;
 
 //   Standard Libraries Imports
-import io.nordstar.personahrm.contract.model.external.company.CompanyRec;
-import io.nordstar.personahrm.contract.model.external.person.PersonRec;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -15,6 +13,8 @@ import lombok.NoArgsConstructor;
 //   FENIX Framework Imports
 
 //   Application Domain Imports
+import io.nordstar.personahrm.contract.model.external.company.CompanyRec;
+import io.nordstar.personahrm.contract.model.external.person.PersonRec;
 
 
 /**
