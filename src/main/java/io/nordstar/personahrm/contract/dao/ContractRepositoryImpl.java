@@ -48,6 +48,20 @@ public class ContractRepositoryImpl {
 
                                                                  "FROM hrm_ctrc_contractentity "                        +
 
-                                                                 "WHERE hrm_ctrc_contractentity.contractCode = 1";
+                                                                 "ORDER BY ACTIVATION_DATE";
+
+    private static final String RETRIEVE_CONTRACT_BY_CODE_SQL_QUERY =   "SELECT hrm_ctrc_contractentity.contractCode, "        +
+                                                                               "hrm_ctrc_contractentity.contractId, "          +
+                                                                               "hrm_ctrc_contractentity.contractTypeCode, "    +
+                                                                               "hrm_ctrc_contractentity.personCode, "          +
+                                                                               "hrm_ctrc_contractentity.companyCode, "         +
+                                                                               "hrm_ctrc_contractentity.creationDate, "        +
+                                                                               "hrm_ctrc_contractentity.activationDate, "      +
+                                                                               "hrm_ctrc_contractentity.terminationDate, "     +
+                                                                               "hrm_ctrc_contractentity.active "               +
+
+                                                                        "FROM hrm_ctrc_contractentity "                        +
+
+                                                                        "WHERE hrm_ctrc_contractentity.contractCode = ";
 
 }
