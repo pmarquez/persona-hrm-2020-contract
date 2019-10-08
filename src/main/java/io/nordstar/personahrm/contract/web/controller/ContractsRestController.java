@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 //   Third Party Libraries Imports
+import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
+import io.nordstar.personahrm.contract.model.contract.ContractRec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -55,113 +57,69 @@ public class ContractsRestController {
     private static final String INVALID_AUTHORIZATION_TOKEN                     = "CONTRACTS_005";   //   Authorization token received is not valid.
     private static final String INTERNAL_ERROR_ENCOUNTERED                      = "CONTRACTS_006";   //   An internal error was encountered.
     private static final String REQUESTED_CONTRACT_EXISTS                       = "CONTRACTS_007";   //   The requested contract does exist.
-    private static final String REQUESTED_PERSON_DOES_NOT_EXIST                 = "CONTRACTS_008";   //   The requested contract does not exist.
+    private static final String REQUESTED_CONTRACT_DOES_NOT_EXIST               = "CONTRACTS_008";   //   The requested contract does not exist.
 
-    private final ContractsService contractsService;
+//    private final ContractsService contractsService;
 
     /**
      * Constructor
      *
-     * @param contractsService
+     * @param //contractsService
      */
-    public ContractsRestController ( ContractsService contractsService ) {
-        this.contractsService = contractsService;
-    }
+//    public ContractsRestController ( ContractsService contractsService ) {
+//        this.contractsService = contractsService;
+//    }
 
     @PostMapping ( value = "/contractsAPI/1.0/contracts/contract" )
     public ResponseEntity createContract ( @RequestBody ContractRec contractData ) {
-
-        this.contractsService.createContract ( contractData );
-
         return new ResponseEntity ( HttpStatus.CREATED );
     }
 
     /**
-     * Retrieves a list of persons from storage.
+     * Retrieves a list of contracts from storage.
      * @return ResponseRec<List<PersonBaseRec>>
      */
-    @GetMapping ( value = "/contractsAPI/1.0/contracts/persons" )
-    public ResponseEntity<List<PersonBaseRec>> personList ( ) {
+    @GetMapping ( value = "/contractsAPI/1.0/contracts/contracts" )
+    public ResponseEntity<List<ContractBaseRec>> contractsList ( ) {
 
-        List<PersonBaseRec> l = this.personsService.retrievePersons ( );
-
-        ResponseEntity response = null;
-
-        if ( l.size ( ) > PersonsRestController.EMPTY_PERSON_LIST ) {
-            response = new ResponseEntity ( l, HttpStatus.OK );
-            logger.info ( "personList.response - Status OK" );
-
-        } else {
-            response = new ResponseEntity ( l, HttpStatus.NOT_FOUND );
-
-        }
+        ResponseEntity response = new ResponseEntity ( null, HttpStatus.OK );
 
         return response;
     }
 
     /**
-     * Retrieves a single person from storage
-     * @param personCode
-     * @return ResponseRec<PersonRec>
+     * Retrieves a single contract from storage
+     * @param contractCode
+     * @return ResponseRec<ContractRec>
      */
-    @GetMapping ( value = "/contractsAPI/1.0/contracts/persons/{personCode}" )
-    public ResponseEntity<PersonRec> retrievePersonByCode ( @PathVariable int personCode ) {
+    @GetMapping ( value = "/contractsAPI/1.0/contracts/contracts/{contractCode}" )
+    public ResponseEntity<ContractRec> retrieveContractByCode ( @PathVariable ( "contractCode" ) int contractCode ) {
 
-        PersonRec r = this.personsService.retrievePersonByCode ( personCode );
-
-        ResponseEntity response = null;
-
-        if ( r.getPersonCode ( ) > PersonsRestController.EMPTY_PERSON_REC ) {
-            response = new ResponseEntity ( r, HttpStatus.OK );
-
-        } else {
-            response = new ResponseEntity ( r, HttpStatus.NOT_FOUND );
-
-        }
-
+        ResponseEntity response = new ResponseEntity ( null, HttpStatus.OK );
         return response;
 
     }
 
     /**
      *
-     * @param personCode
-     * @param personData
+     * @param contractCode
+     * @param contractData
      * @return
      */
-    @PutMapping ( value = "/contractsAPI/1.0/contracts/persons/{personCode}" )
-    public ResponseEntity updatePerson ( @PathVariable int personCode, @RequestBody PersonRec personData ) {
-
-        this.personsService.updatePerson ( personCode, personData );
-
+    @PutMapping ( value = "/contractsAPI/1.0/contracts/contracts/{contractCode}" )
+    public ResponseEntity updateContract ( @PathVariable ( "contractCode" ) int contractCode, @RequestBody ContractRec contractData ) {
         return new ResponseEntity ( HttpStatus.NO_CONTENT );
-
     }
 
     /**
      *
-     * @param personCode
+     * @param contractCode
      */
-    @DeleteMapping ( value = "/contractsAPI/1.0/contracts/persons/{personCode}" )
-    public ResponseEntity deletePerson ( int personCode ) {
-
-        this.personsService.deletePerson ( personCode );
+    @DeleteMapping ( value = "/contractsAPI/1.0/contracts/contract/{contractCode}" )
+    public ResponseEntity deleteContract ( @PathVariable ( "contractCode" ) int contractCode ) {
 
         return new ResponseEntity ( HttpStatus.NO_CONTENT );
 
     }
-
-    /**
-     * Checks whether a person exists in storage.
-     * @param personCode
-     * @return ResponseEntity<Boolean>
-     * @since 1.0
-     */
-    @GetMapping ( value = "/contractsAPI/1.0/contracts/exists/{personCode}" )
-    public ResponseEntity personExists ( @PathVariable int personCode ) {
-        ResponseEntity response = new ResponseEntity ( HttpStatus.OK );
-        return response;
-    }
-
 
 }
