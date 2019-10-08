@@ -1,13 +1,12 @@
 package io.nordstar.personahrm.contract.web.controller;
 
 //   Standard Libraries Imports
-import java.net.http.HttpResponse;
-import java.util.ArrayList;
 import java.util.List;
 
 //   Third Party Libraries Imports
 import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
 import io.nordstar.personahrm.contract.model.contract.ContractRec;
+import io.nordstar.personahrm.contract.web.services.ContractsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -59,16 +58,16 @@ public class ContractsRestController {
     private static final String REQUESTED_CONTRACT_EXISTS                       = "CONTRACTS_007";   //   The requested contract does exist.
     private static final String REQUESTED_CONTRACT_DOES_NOT_EXIST               = "CONTRACTS_008";   //   The requested contract does not exist.
 
-//    private final ContractsService contractsService;
+    private final ContractsService contractsService;
 
     /**
      * Constructor
      *
      * @param //contractsService
      */
-//    public ContractsRestController ( ContractsService contractsService ) {
-//        this.contractsService = contractsService;
-//    }
+    public ContractsRestController ( ContractsService contractsService ) {
+        this.contractsService = contractsService;
+    }
 
     @PostMapping ( value = "/contractsAPI/1.0/contracts/contract" )
     public ResponseEntity createContract ( @RequestBody ContractRec contractData ) {
@@ -77,7 +76,7 @@ public class ContractsRestController {
 
     /**
      * Retrieves a list of contracts from storage.
-     * @return ResponseRec<List<PersonBaseRec>>
+     * @return ResponseRec<List<ContractBaseRec>>
      */
     @GetMapping ( value = "/contractsAPI/1.0/contracts/contracts" )
     public ResponseEntity<List<ContractBaseRec>> contractsList ( ) {
