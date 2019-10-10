@@ -12,6 +12,10 @@ package io.nordstar.personahrm.contract.dao;
 //   Application Domain Imports
 
 
+import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
+
+import java.util.List;
+
 /**
  * ContractRepository.java<br/><br/>
  * Creation Date 2019-10-07 15:19 PT<br/><br/>
@@ -34,4 +38,10 @@ package io.nordstar.personahrm.contract.dao;
  * @version 1.0 - 2019-10-07 15:19 PT
  */
 public interface ContractRepository {
+
+    /**
+     *
+     * @return
+     */
+    public List<ContractBaseRec> retrieveContracts ( );
 }

@@ -42,16 +42,17 @@ import io.nordstar.personahrm.contract.model.external.person.PersonRec;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContractBaseRec {
-    private int            contractCode; 
-    private int            contractTypeCode;
-    private String         contractType;
-    private int            personCode;
-    private PersonRec      person;
-    private int            companyCode;
-    private CompanyRec     company;
-    private LocalDateTime  creationDate;
-    private LocalDate      activationDate;
-    private LocalDate      terminationDate;
-    private boolean        active; 
+    int            contractCode;
+    String         contractId;
+    int            contractTypeCode;
+    String         contractType;
+    int            personCode;
+    PersonRec      person;
+    int            companyCode;
+    CompanyRec     company;
+    String         creationDate;
+    String         activationDate;
+    String         terminationDate;
+    boolean        active;
 
 }

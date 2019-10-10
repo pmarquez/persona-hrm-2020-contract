@@ -12,6 +12,16 @@ package io.nordstar.personahrm.contract.dao;
 //   Application Domain Imports
 
 
+import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.InvalidResultSetAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * ContractRepositoryImpl.java<br/><br/>
  * Creation Date 2019-10-07 15:18 PT<br/><br/>
@@ -33,7 +43,12 @@ package io.nordstar.personahrm.contract.dao;
  * @author Paulo Márquez
  * @version 1.0 - 2019-10-07 15:18 PT
  */
-public class ContractRepositoryImpl {
+public class ContractRepositoryImpl implements ContractRepository {
+    @Autowired
+    private JdbcTemplate contractJdbcTemplate;
+
+    @Autowired
+    private NamedParameterJdbcTemplate contractNpJdbcTemplate;
 
     //   Contracts CRUD
     private static final String RETRIEVE_CONTRACTS_SQL_QUERY =   "SELECT hrm_ctrc_contractentity.contractCode, "        +
@@ -64,4 +79,46 @@ public class ContractRepositoryImpl {
 
                                                                         "WHERE hrm_ctrc_contractentity.contractCode = ";
 
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<ContractBaseRec> retrieveContracts ( ) {
+
+        List<ContractBaseRec> persons = new ArrayList<> ( );
+
+        try {
+            persons = contractJdbcTemplate.query ( RETRIEVE_CONTRACTS_SQL_QUERY,
+                    ( rs, rowNum ) -> new ContractBaseRec (   rs.getInt     ( "contractCode"     ),
+                                                              rs.getString  ( "contractId"       ),
+                                                              rs.getInt     ( "contractTypeCode" ),
+                                                              "",
+                                                              rs.getInt     ( "personCode"       ),
+                                                              null,
+                                                              rs.getInt     ( "companyCode"      ),
+                                                              null,
+                                                              rs.getString  ( "creationDate"     ),
+                                                              rs.getString  ( "startDate"        ),
+                                                              rs.getString  ( "terminationDate"  ),
+                                                              rs.getBoolean ( "active"           )
+                    )
+            );
+
+        } catch ( InvalidResultSetAccessException irsae ) {
+            System.out.println ( "InvalidResultSetAccessException: " + irsae.getStackTrace ( ) );
+
+        } catch ( DataAccessException dae ) {
+            System.out.println ( "DataAccessException: " + dae.getStackTrace ( ) );
+
+        } catch ( Exception e ) {
+            System.out.println ( "Exception: " + e.getStackTrace ( ).toString ( ) );
+
+        }
+
+        return persons;
+
+    }
 }
+

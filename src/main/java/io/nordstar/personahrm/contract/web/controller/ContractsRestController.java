@@ -4,9 +4,6 @@ package io.nordstar.personahrm.contract.web.controller;
 import java.util.List;
 
 //   Third Party Libraries Imports
-import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
-import io.nordstar.personahrm.contract.model.contract.ContractRec;
-import io.nordstar.personahrm.contract.web.services.ContractsService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -16,6 +13,9 @@ import org.springframework.web.bind.annotation.*;
 //   FENIX Framework Imports
 
 //   Application Domain Imports
+import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
+import io.nordstar.personahrm.contract.model.contract.ContractRec;
+import io.nordstar.personahrm.contract.web.services.ContractsService;
 
 
 /**
