@@ -40,6 +40,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CompanyRec extends CompanyBaseRec {
+    String doSomething;   //   Dummy property so that Lombok can do its job.
 //    private CompanyContactList     contacts;
 //    private PostalAddressRecList   postalAddresses;
 }
