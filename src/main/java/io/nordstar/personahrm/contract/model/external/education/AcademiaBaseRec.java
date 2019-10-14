@@ -2,19 +2,14 @@
 package io.nordstar.personahrm.contract.model.external.education;
 
 //   Standard Libraries Imports
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//   Third Party Libraries Imports
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-
-//   Third Party Libraries Imports
 
 //   FENIX Framework Imports
 
