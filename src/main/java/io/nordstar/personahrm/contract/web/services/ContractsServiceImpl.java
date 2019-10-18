@@ -26,6 +26,13 @@ public class ContractsServiceImpl implements ContractsService {
 
     @Override
     public ContractRec retrieveContractByCode ( int contractCode ) {
+
+        //   Retrieve Contract Base Data - HRM-2020-Contract
+
+        //   Retrieve Person Data - HRM-2020-Person
+
+        //   Retrieve Company Data - HRM-2020-Company
+
         return null;
     }
 
