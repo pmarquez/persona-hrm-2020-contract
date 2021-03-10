@@ -1,4 +1,4 @@
-package io.nordstar.personahrm.contract.web.services;
+package io.nordstar.personahrm.contract.services;
 
 import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
 import io.nordstar.personahrm.contract.model.contract.ContractRec;

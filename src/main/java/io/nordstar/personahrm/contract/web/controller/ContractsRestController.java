@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 //   Application Domain Imports
 import io.nordstar.personahrm.contract.model.contract.ContractBaseRec;
 import io.nordstar.personahrm.contract.model.contract.ContractRec;
-import io.nordstar.personahrm.contract.web.services.ContractsService;
+import io.nordstar.personahrm.contract.services.ContractsService;
 
 
 /**
@@ -39,6 +39,7 @@ import io.nordstar.personahrm.contract.web.services.ContractsService;
  * @author Paulo Márquez
  * @version 1.0 - 2019-10-08 11:04 PT
  */
+@RequestMapping("/PERSONA/contractAPI/1.0/contract")
 @RestController
 public class ContractsRestController {
 
@@ -69,7 +70,7 @@ public class ContractsRestController {
         this.contractsService = contractsService;
     }
 
-    @PostMapping ( value = "/contractsAPI/1.0/contracts/contract" )
+    @PostMapping ( value = "/contract" )
     public ResponseEntity createContract ( @RequestBody ContractRec contractData ) {
         return new ResponseEntity ( HttpStatus.CREATED );
     }
@@ -78,7 +79,7 @@ public class ContractsRestController {
      * Retrieves a list of contracts from storage.
      * @return ResponseRec<List<ContractBaseRec>>
      */
-    @GetMapping ( value = "/contractsAPI/1.0/contracts/contracts" )
+    @GetMapping ( value = "/contracts" )
     public ResponseEntity<List<ContractBaseRec>> contractsList ( ) {
 
         ResponseEntity response = new ResponseEntity ( null, HttpStatus.OK );
@@ -91,7 +92,7 @@ public class ContractsRestController {
      * @param contractCode
      * @return ResponseRec<ContractRec>
      */
-    @GetMapping ( value = "/contractsAPI/1.0/contracts/contracts/{contractCode}" )
+    @GetMapping ( value = "/contract/{contractCode}" )
     public ResponseEntity<ContractRec> retrieveContractByCode ( @PathVariable ( "contractCode" ) int contractCode ) {
 
         ResponseEntity response = new ResponseEntity ( null, HttpStatus.OK );
@@ -105,7 +106,7 @@ public class ContractsRestController {
      * @param contractData
      * @return
      */
-    @PutMapping ( value = "/contractsAPI/1.0/contracts/contracts/{contractCode}" )
+    @PutMapping ( value = "/contract/{contractCode}" )
     public ResponseEntity updateContract ( @PathVariable ( "contractCode" ) int contractCode, @RequestBody ContractRec contractData ) {
         return new ResponseEntity ( HttpStatus.NO_CONTENT );
     }
@@ -114,7 +115,7 @@ public class ContractsRestController {
      *
      * @param contractCode
      */
-    @DeleteMapping ( value = "/contractsAPI/1.0/contracts/contract/{contractCode}" )
+    @DeleteMapping ( value = "/contract/{contractCode}" )
     public ResponseEntity deleteContract ( @PathVariable ( "contractCode" ) int contractCode ) {
 
         return new ResponseEntity ( HttpStatus.NO_CONTENT );
