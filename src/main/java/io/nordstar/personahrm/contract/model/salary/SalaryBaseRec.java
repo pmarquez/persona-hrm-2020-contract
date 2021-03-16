@@ -10,7 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//   FENIX Framework Imports
+//   ns Framework Imports
 
 //   Application Domain Imports
 

@@ -37,6 +37,7 @@ import java.util.List;
  * @author Paulo Márquez
  * @version 1.0 - 2019-10-07 15:19 PT
  */
+//TODO CREATE THE DAO
 public interface ContractRepository {
 
     /**
